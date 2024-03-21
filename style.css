@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 6px;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #21A3FC !important;
+}
+
+.custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    max-width: 80%;
+    padding: 20px; /* Yeni eklenen stil */
+    overflow: hidden;
+}
+
+#game-content img {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+#start-btn {
+    width: 25%;
+    font-size: 3rem;
+    height: 10%;
+    margin-top: 4%;
+}
+
+h2 {
+    font-size: 4rem !important;
+}
+
+#game-content {
+    display: block;
+}
+
+#question-content {
+    display: none;
+}
+
+#question-content h2 {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 1200px) {
+    #game-content {
+        height: 90%;
+    }
+
+    #categories {
+        margin: auto;
+        margin-top: 3rem;
+    }
+
+    #categories td {
+        max-width: 8px; /* Her bir kategori hücresinin minimum genişliğini ayarla */
+        text-align: center;
+        font-size: 2rem !important;
+    }
+
+    #start-btn {
+        width: 25%;
+        height: 7%;
+        margin-top: 10%;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 3.5rem !important;
+    }
+
+    #game-content img {
+        width: 55%;
+        margin-top: 1rem;
+        max-width: 100%; 
+    }
+
+    .list-group {
+        width: 80%; 
+        transform: translateX(35px);
+        margin-top: 4rem;
+    }
+
+    #question-content h2 {
+        font-size: 2.5rem !important;
+        margin: 2rem 0;
+        /* word-break: break-all;    */
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    #game-content {
+        height: 90%;
+    }
+
+    #categories {
+        margin: auto;
+        margin-top: 2rem;
+    }
+
+    #categories td {
+        max-width: 5px; 
+        text-align: center;
+        font-size: 1.8rem !important;
+    }
+
+    #start-btn {
+        width: 20%;
+        height: 6%;
+        margin-top: 10%;
+        font-size: 12px;
+    }
+
+    h2 {
+        font-size: 3.2rem !important;
+    }
+
+    #game-content img {
+        width: 50%;
+        margin-top: 1rem;
+    }
+
+    .list-group {
+        width: 70%; 
+        transform: translateX(50px);
+        margin-top: 4rem;
+    }
+}
+
+
+
+
+@media (max-width: 800px) {
+    #categories {
+        margin-top: 1.5rem;
+    }
+
+    #categories tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: -50px;
+    }
+
+    #categories td {
+        font-size: 2.5rem !important;
+        display: block; /* Kategorileri alt alta yerleştir */
+        padding: 10px !important;
+    }
+
+    #start-btn {
+        width: 40%;
+        height: 4%;
+        margin-top: 7%;
+        font-size: 8px;
+    }
+
+    h2 {
+        font-size: 3rem !important;
+    }
+
+    .list-group {
+        width: 50%; 
+        transform: translateX(90px);
+        margin-top: 4rem;
+    }
+}
+
+
+@media (max-width: 680px) {
+    #game-content {
+        margin-top: 10rem;
+    }
+
+    #categories tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: -50px;
+    }
+
+    #categories td {
+        display: block; /* Kategorileri alt alta yerleştir */
+        padding: 7px !important;
+    }
+
+    #start-btn {
+        width: 40%;
+        height: 4%;
+        margin-top: 7%;
+        font-size: 8px;
+    }
+
+    h2 {
+        font-size: 2.7rem !important;
+    }
+    
+    .list-group {
+        width: 30%; 
+        transform: translateX(120px);
+        margin-top: 4rem;
+    }
+
+    .list-group-item label {
+        font-size: 2rem !important;
+    }
+}
+
+
+
+@media (max-width: 540px) {
+    #game-content {
+        margin-top: 10rem;
+    }
+
+    #categories tr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: -50px;
+    }
+
+    #categories td {
+        display: block; /* Kategorileri alt alta yerleştir */
+        padding: 6px !important;
+        font-size: 2.4rem !important;
+    }
+
+    #start-btn {
+        width: 40%;
+        height: 4%;
+        margin-top: 7%;
+        font-size: 8px;
+    }
+
+    h2 {
+        font-size: 2.5rem !important;
+    }
+    
+}
+
+
+@media (max-width: 460px) {
+    #game-content {
+        margin-top: 10rem;
+    }
+
+    #categories tr {
+        margin-left: -40px;
+    }
+
+
+    #categories td {   
+        padding: 6px !important;
+        font-size: 2rem !important;
+    }
+
+    #start-btn {
+        width: 35%;
+        height: 4%;
+        margin-top: 7%;
+        font-size: 6px;
+    }
+
+    h2 {
+        font-size: 2.3rem !important;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+#categories td {
+    font-size: 17px;
+    padding: 18px; /* Hücre içindeki boşluklar */
+    text-align: center; /* Hücre içeriğini ortalama */
+    border: none; 
+    cursor: pointer;
+}
+
+#categories td:hover {
+    background: #FEC200;
+}
+
+#q-img {
+    margin: 0;
+    padding: 0;
+    margin: 4rem 0;
+}
+
+.list-group-item {
+    padding: .5rem;
+    width: 80%;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.list-group-item label {
+    font-size: 15px;
+    flex-grow: 1; /* Adding this property to make the label fill the available space */
+    cursor: pointer;
+}
+
+
+.fa-solid {
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.num-item {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#score-content {
+    visibility: hidden;
+}
+
+#score span {
+     font-size: 4rem;
+     font-weight: 500;
+     margin-left: 5px;
+}

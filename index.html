@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Quiz App</title>
+</head>
+
+<body>
+    <div class="container custom-container w-25 h-75 rounded  d-flex flex-column align-items-center justify-content-center">
+        <div id="game-content">
+            <div class="img-section">
+                <img src="img/quiz.avif" alt="">
+            </div>
+            <h2>Tap Start To Play</h2>
+            <button id="start-btn" class="btn btn-primary mb-5 custom-button">START</button>
+            <h2>Categories</h2>
+            <div id="categories">
+                <table class="table mt-3">
+                    <tr>
+                        <td onclick="changeColor(this)">Books</td>
+                        <td onclick="changeColor(this)">Films</td>
+                        <td onclick="changeColor(this)">Music</td>
+                    </tr>
+                    <tr>
+                        <td onclick="changeColor(this)">Math</td>
+                        <td onclick="changeColor(this)">Sport</td>
+                        <td onclick="changeColor(this)">Geography</td>
+                    </tr>
+                    <tr>
+                        <td onclick="changeColor(this)">History</td>
+                        <td onclick="changeColor(this)">Politic</td>
+                        <td onclick="changeColor(this)">Art</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="question-content">
+            <div id="q-img">
+                <img src="img/brain.jpg">
+            </div>
+            <div id="question-num" class="mt-4 mb-3">
+                <span id="question-num-item" class="num-item">1</span>
+                <span class="num-item">/8</span>
+            </div>
+            <h2 class="mb-4 fs-1">Buraya soru</h2>
+            <ul class="list-group d-flex justify-content-center align-items-center">
+                <li class="list-group-item mt-4">
+                    <label class="list-group-item-text">Şık 1</label>
+                </li>
+                <li class="list-group-item mt-4">
+                    <label class="list-group-item-text">Şık 2</label>
+                </li>
+                <li class="list-group-item mt-4">
+                    <label class="list-group-item-text">Şık 3</label>
+                </li>
+                <li class="list-group-item mt-4">
+                    <label class="list-group-item-text">Şık 4</label>
+                </li>
+            </ul>
+            <div id="next-icon" class="d-flex text-end align-items-center mt-5 me-5">
+                <label class="fs-1 flex-grow-1 me-3">Next</label>
+                <i class="fa-solid fa-right-long"></i>
+            </div>
+        </div>
+
+        <div id="score-content" class="d-flex flex-column align-items-center justify-content-center">
+            <div id="score-circle"></div>
+            <div id="score" class="mb-3 mt-3"> <!-- Margin değerleri düzenlendi -->
+                <span>0</span>
+                <span>Correct on 8</span>
+            </div>
+            <div id="score-content-explanation">
+                <h2>GG You are excellent !!</h2>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Bootstrap JS ve Popper.js -->
+    <script src="script.js"></script>
+</body>
+
+</html>
