@@ -21,16 +21,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 30% !important;
     text-align: center;
     background: #fff;
     max-width: 80%;
-    padding: 20px; /* Yeni eklenen stil */
+    padding: 20px; 
     overflow: hidden;
 }
 
 #game-content img {
     width: 60%;
-    margin-top: 2rem;
+    margin-top: 8rem;
 }
 
 #start-btn {
@@ -60,58 +61,17 @@ h2 {
 }
 
 
-
-@media (max-width: 1200px) {
-    #game-content {
-        height: 90%;
-    }
-
-    #categories {
-        margin: auto;
-        margin-top: 3rem;
-    }
-
-    #categories td {
-        max-width: 8px; /* Her bir kategori hücresinin minimum genişliğini ayarla */
-        text-align: center;
-        font-size: 2rem !important;
-    }
-
-    #start-btn {
-        width: 25%;
-        height: 7%;
-        margin-top: 10%;
-        font-size: 14px;
-    }
-
-    h2 {
-        font-size: 3.5rem !important;
-    }
-
+@media (max-width: 1400px) { 
     #game-content img {
-        width: 55%;
-        margin-top: 1rem;
-        max-width: 100%; 
+        width: 60%;
+        margin-top: 2rem;
     }
-
-    .list-group {
-        width: 80%; 
-        transform: translateX(35px);
-        margin-top: 4rem;
-    }
-
-    #question-content h2 {
-        font-size: 2.5rem !important;
-        margin: 2rem 0;
-        /* word-break: break-all;    */
-    }
-}
-
+}    
 
 
 @media (max-width: 1000px) {
-    #game-content {
-        height: 90%;
+    .custom-container {
+        width: 35% !important;
     }
 
     #categories {
@@ -122,18 +82,17 @@ h2 {
     #categories td {
         max-width: 5px; 
         text-align: center;
-        font-size: 1.8rem !important;
+        font-size: 2.5rem !important;
     }
 
     #start-btn {
         width: 20%;
-        height: 6%;
-        margin-top: 10%;
-        font-size: 12px;
+        height: 9%;
+        font-size: 14px;
     }
 
     h2 {
-        font-size: 3.2rem !important;
+        font-size: 3.5rem !important;
     }
 
     #game-content img {
@@ -146,39 +105,38 @@ h2 {
         transform: translateX(50px);
         margin-top: 4rem;
     }
+
+    #question-content h2 {
+        font-size: 2.5rem !important;
+    }
 }
 
 
 
 
 @media (max-width: 800px) {
+    .custom-container {
+        width: 50% !important;
+    }
+
     #categories {
         margin-top: 1.5rem;
     }
 
-    #categories tr {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: -50px;
-    }
-
     #categories td {
         font-size: 2.5rem !important;
-        display: block; /* Kategorileri alt alta yerleştir */
-        padding: 10px !important;
+        padding: 20px 0 !important;
     }
 
     #start-btn {
-        width: 40%;
-        height: 4%;
+        width: 20%;
+        height: 7%;
         margin-top: 7%;
-        font-size: 8px;
+        font-size: 12px;
     }
 
     h2 {
-        font-size: 3rem !important;
+        font-size: 4rem !important;
     }
 
     .list-group {
@@ -189,114 +147,61 @@ h2 {
 }
 
 
-@media (max-width: 680px) {
-    #game-content {
-        margin-top: 10rem;
+
+@media (max-width: 500px) {
+    .custom-container {
+        width: 75% !important;
     }
 
-    #categories tr {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: -50px;
+    #categories {
+        margin-top: 1.5rem;
     }
 
     #categories td {
-        display: block; /* Kategorileri alt alta yerleştir */
-        padding: 7px !important;
-    }
-
-    #start-btn {
-        width: 40%;
-        height: 4%;
-        margin-top: 7%;
-        font-size: 8px;
-    }
-
-    h2 {
-        font-size: 2.7rem !important;
-    }
-    
-    .list-group {
-        width: 30%; 
-        transform: translateX(120px);
-        margin-top: 4rem;
-    }
-
-    .list-group-item label {
-        font-size: 2rem !important;
-    }
-}
-
-
-
-@media (max-width: 540px) {
-    #game-content {
-        margin-top: 10rem;
-    }
-
-    #categories tr {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: -50px;
-    }
-
-    #categories td {
-        display: block; /* Kategorileri alt alta yerleştir */
-        padding: 6px !important;
-        font-size: 2.4rem !important;
-    }
-
-    #start-btn {
-        width: 40%;
-        height: 4%;
-        margin-top: 7%;
-        font-size: 8px;
-    }
-
-    h2 {
         font-size: 2.5rem !important;
-    }
-    
-}
-
-
-@media (max-width: 460px) {
-    #game-content {
-        margin-top: 10rem;
-    }
-
-    #categories tr {
-        margin-left: -40px;
-    }
-
-
-    #categories td {   
-        padding: 6px !important;
-        font-size: 2rem !important;
+        padding: 15px !important;
     }
 
     #start-btn {
-        width: 35%;
-        height: 4%;
+        width: 20%;
+        height: 7%;
         margin-top: 7%;
-        font-size: 6px;
+        font-size: 12px;
     }
 
     h2 {
-        font-size: 2.3rem !important;
-    }
+        font-size: 3.5rem !important;
+    }    
     
 }
 
 
+@media (max-width: 350px) {
+    .custom-container {
+        width: 100% !important;
+    }
 
+    #categories {
+        margin-top: 1.5rem;
+    }
 
+    #categories td {
+        font-size: 2.2rem !important;
+        padding: 20px 10px !important;
+    }
 
+    #start-btn {
+        width: 20%;
+        height: 7%;
+        margin-top: 7%;
+        font-size: 12px;
+    }
 
+    h2 {
+        font-size: 3.5rem !important;
+    }    
+    
+}
 
 
 
