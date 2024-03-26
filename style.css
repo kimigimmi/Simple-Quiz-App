@@ -17,21 +17,20 @@ body {
     background-color: #21A3FC !important;
 }
 
-.custom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#custom-container {
     width: 30% !important;
     text-align: center;
     background: #fff;
     max-width: 80%;
     padding: 20px; 
     overflow: hidden;
+    position: relative;
+    border-radius: 1.3rem !important;
 }
 
 #game-content img {
     width: 60%;
-    margin-top: 8rem;
+    margin-top: -10%;
 }
 
 #start-btn {
@@ -39,10 +38,19 @@ body {
     font-size: 3rem;
     height: 10%;
     margin-top: 4%;
+    border-radius: 1rem
+}
+
+#play-again-btn {
+    width: 70%; 
+    font-size: 2.5rem; 
+    padding: 1.5rem; 
+    margin-top: 7%;
+    border-radius: 1rem
 }
 
 h2 {
-    font-size: 4rem !important;
+    font-size: 5rem !important;
 }
 
 #game-content {
@@ -51,27 +59,73 @@ h2 {
 
 #question-content {
     display: none;
+    position: absolute;
+    top: 0;
+}
+
+#score-content {
+    display: none;
+}
+
+#score span {
+    font-size: 4rem;
+    font-weight: 500;
+    margin-left: 5px;
 }
 
 #question-content h2 {
+    margin: 2rem 0 2.5rem 0 !important;
+    font-size: 3.5rem !important;
     height: 7rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#next-icon {
+    right: 2rem;
+}
+
+#next-icon label {
+    font-size: 2.5rem;       
+}
+
+#q-img {
+    margin-bottom: 5rem;
+}
+
 
 @media (max-width: 1400px) { 
     #game-content img {
-        width: 60%;
         margin-top: 2rem;
+    }
+    #question-content h2 {
+        font-size: 3rem !important;
+        margin-top: 3.5rem;
     }
 }    
 
+@media (max-width: 1200px) and (min-width: 1000px) {
+    #question-content {
+         width: 100%; 
+    }
+    #question-content h2 {
+        font-size: 3rem !important;
+        margin-top: 3.5rem;
+    }
+    .list-group {
+        margin-top: 3rem;
+    }
+}
+
+
 
 @media (max-width: 1000px) {
-    .custom-container {
-        width: 35% !important;
+    #question-content {
+        width: 100%; 
+   }
+    #custom-container {
+        width: 40% !important;
     }
 
     #categories {
@@ -86,7 +140,7 @@ h2 {
     }
 
     #start-btn {
-        width: 20%;
+        width: 30%;
         height: 9%;
         font-size: 14px;
     }
@@ -101,9 +155,9 @@ h2 {
     }
 
     .list-group {
-        width: 70%; 
-        transform: translateX(50px);
+        width: 92%; 
         margin-top: 4rem;
+        transform: translateX(5%);
     }
 
     #question-content h2 {
@@ -115,8 +169,8 @@ h2 {
 
 
 @media (max-width: 800px) {
-    .custom-container {
-        width: 50% !important;
+    #custom-container {
+        width: 60% !important;
     }
 
     #categories {
@@ -140,17 +194,21 @@ h2 {
     }
 
     .list-group {
-        width: 50%; 
-        transform: translateX(90px);
+        width: 80%; 
+        transform: translateX(12%);
         margin-top: 4rem;
+    }
+
+    #next-icon {
+        margin-right: 10rem !important;
     }
 }
 
 
 
 @media (max-width: 500px) {
-    .custom-container {
-        width: 75% !important;
+    #custom-container {
+        width: 100% !important;
     }
 
     #categories {
@@ -158,8 +216,8 @@ h2 {
     }
 
     #categories td {
-        font-size: 2.5rem !important;
-        padding: 15px !important;
+        font-size: 2.3rem !important;
+        padding: 10px !important;
     }
 
     #start-btn {
@@ -172,12 +230,16 @@ h2 {
     h2 {
         font-size: 3.5rem !important;
     }    
+
+    li label {
+        font-size: 2.2rem !important;
+    }
     
 }
 
 
 @media (max-width: 350px) {
-    .custom-container {
+    #custom-container {
         width: 100% !important;
     }
 
@@ -200,6 +262,10 @@ h2 {
     h2 {
         font-size: 3.5rem !important;
     }    
+
+    li label {
+        font-size: 2rem !important;
+    }
     
 }
 
@@ -215,12 +281,6 @@ h2 {
 
 #categories td:hover {
     background: #FEC200;
-}
-
-#q-img {
-    margin: 0;
-    padding: 0;
-    margin: 4rem 0;
 }
 
 .list-group-item {
@@ -245,14 +305,4 @@ h2 {
 .num-item {
     font-size: 3rem;
     font-weight: bold;
-}
-
-#score-content {
-    visibility: hidden;
-}
-
-#score span {
-     font-size: 4rem;
-     font-weight: 500;
-     margin-left: 5px;
 }

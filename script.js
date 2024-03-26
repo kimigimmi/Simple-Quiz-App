@@ -2,19 +2,18 @@ const tdElements = document.querySelectorAll('#categories td');
 let selectedCategory = '';
 
 function changeColor(element) {
-    console.log(element)
     tdElements.forEach(td => {
         td.style.backgroundColor = '';
     });
     element.style.backgroundColor = "#FEC200";
     selectedCategory = element.innerText;
 
-
     getQuestionsFromDB()
         .then(data => {
             const filteredQuestions = data.results.filter(question => {     // eliminate true,false questions
                  return question.type !== "boolean"
             })
+            console.log('event çağırdım')
             eventListeners(filteredQuestions);
         }).catch(error => error.message)
 
@@ -27,9 +26,10 @@ const questionTag = document.querySelector('#question-content h2');
 const options = document.querySelectorAll('.list-group-item-text');
 const listGroup = document.querySelector('.list-group');
 const currentQNum = document.querySelector('#question-num-item');
+const playAgainBtn = document.querySelector('#play-again-btn');
+const scoreContent = document.querySelector('#score-content');
 
 
-// Api Categories URL ==> 20 questions per caterogy ???? check it 
 const url = {
     'Books': 'https://opentdb.com/api.php?amount=20&category=10&difficulty=medium',
     'Films': 'https://opentdb.com/api.php?amount=20&category=11',
@@ -45,12 +45,12 @@ const url = {
 let selectedAnswer = '';
 let totalCorrect = 0;
 let countQ = 1;
+let askedBefore = [];
 
 
 function getQuestionsFromDB() {
     const currentURL = url[selectedCategory];
     console.log(selectedCategory);
-    console.log(currentURL);
     return fetch(currentURL)
         .then(response => {
             if (!response.ok) {
@@ -77,7 +77,13 @@ function eventListeners(questions) {
 
     // Next question
     document.querySelector('.fa-right-long').addEventListener('click', () => skipQuestion(questions));
+
+    // Play again
+    playAgainBtn.addEventListener('click', (e) => {
+        location.reload();
+    });
 }
+
 
 
 function startGame(questions) {
@@ -87,14 +93,28 @@ function startGame(questions) {
     }
     gameContent.style.display = 'none';
     questionContent.style.display = 'block';
-
+    countQ = 1; 
     skipQuestion(questions);
 }
 
 
+// function playAgain() {
+//     gameContent.style.display = 'block';
+//     scoreContent.style.display = 'none';
+//     selectedCategory = '';
+//     selectedAnswer = '';
+//     totalCorrect = 0;
+//     tdElements.forEach(td => {
+//         td.style.backgroundColor = '';
+//     });
+//     askedBefore = [];
+// }
 
-const askedBefore = [];
+
+
 function skipQuestion(questions) {
+    console.log('skipQuestion called'); 
+
     listGroup.querySelectorAll('.list-group-item').forEach(item => {
         item.style.pointerEvents = 'auto';
     });
@@ -108,18 +128,17 @@ function skipQuestion(questions) {
     if (!askedBefore.includes(currentQ)) {       
         askedBefore.push(currentQ)
 
-        questionTag.innerText = currentQ.question;
+        questionTag.innerText = decodeHTMLEntities(currentQ.question);
         const qArr = currentQ.incorrect_answers
         qArr.splice(randomNumber, 0, currentQ.correct_answer);
-        console.log(qArr);
+
         options.forEach((option, index) => {
-            option.innerText = qArr[index];
+            option.innerText = decodeHTMLEntities(qArr[index]);
             option.parentElement.style.background = '#84defa';
         })
         currentQNum.textContent = countQ;
-        countQ++;
-        console.log('İlk bölge')
-        console.log(askedBefore)
+        countQ+= 1;
+        console.log(countQ)
     } else {
         skipQuestion(questions);
         console.log('İkinci bölge')
@@ -127,13 +146,23 @@ function skipQuestion(questions) {
 
     if (countQ > 9) {
         questionContent.style.display = 'none';
+        scoreContent.style.display = 'block';
         scoreResult();
     }
 }
 
 
+// To fix quot #$... problems
+function decodeHTMLEntities(text) {
+    const decodedText = document.createElement("textarea");
+    decodedText.innerHTML = text;
+    return decodedText.value;
+}
+
+
+
 function scoreResult() {
-    document.querySelector('#score-content').style.visibility = 'visible';
+    scoreContent.style.display = 'block';
     document.querySelector('#score > :first-child').textContent = totalCorrect;
 
     let scoreExplanation = document.querySelector('#score-content-explanation h2');
@@ -177,17 +206,12 @@ function scoreResult() {
 function choosingOption(e, questions) {
     e.preventDefault();
     const clickedElement = e.target;
-    console.log(clickedElement)
     if (clickedElement.classList.contains('list-group-item') || clickedElement.parentElement.classList.contains('list-group-item')) {
         const li = clickedElement.closest('li');
         li.style.backgroundColor = '#eb6434';
         selectedAnswer = clickedElement.textContent.trim();
-        console.log(selectedAnswer)
-
-        console.log(questions)
-
+    
         const selectedQuestion = questions.find(question => question.incorrect_answers.includes(selectedAnswer) || question.correct_answer === selectedAnswer)
-        console.log(selectedQuestion) 
 
         listGroup.querySelectorAll('.list-group-item').forEach(item => {
             item.style.pointerEvents = 'none';
@@ -199,7 +223,6 @@ function choosingOption(e, questions) {
             if (selectedQuestion.correct_answer !== selectedAnswer) {
                 li.style.backgroundColor = 'red';
                 rightAnsweredLi.style.backgroundColor = 'green';   // doğru yanıt olan li element'ini green yap
-                totalWrong++;
             } else {
                 li.style.backgroundColor = 'green';
                 totalCorrect++;

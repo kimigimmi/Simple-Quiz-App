@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container custom-container h-75 rounded  d-flex flex-column align-items-center justify-content-center">
+    <div id="custom-container" class="container h-75 rounded  d-flex flex-column align-items-center justify-content-center">
         <div id="game-content">
             <div class="img-section">
                 <img src="img/quiz.avif" alt="">
@@ -48,7 +48,7 @@
                 <span id="question-num-item" class="num-item">1</span>
                 <span class="num-item">/8</span>
             </div>
-            <h2 class="mb-4 fs-1">Buraya soru</h2>
+            <h2 class="mb-4">Buraya soru</h2>
             <ul class="list-group d-flex justify-content-center align-items-center">
                 <li class="list-group-item mt-4">
                     <label class="list-group-item-text">Şık 1</label>
@@ -64,12 +64,12 @@
                 </li>
             </ul>
             <div id="next-icon" class="d-flex text-end align-items-center mt-5 me-5">
-                <label class="fs-1 flex-grow-1 me-3">Next</label>
+                <label class="flex-grow-1 me-3">Next</label>
                 <i class="fa-solid fa-right-long"></i>
             </div>
         </div>
 
-        <div id="score-content" class="d-flex flex-column align-items-center justify-content-center">
+        <div id="score-content">
             <div id="score-circle"></div>
             <div id="score" class="mb-3 mt-3"> <!-- Margin değerleri düzenlendi -->
                 <span>0</span>
@@ -78,6 +78,7 @@
             <div id="score-content-explanation">
                 <h2>GG You are excellent !!</h2>
             </div>
+            <button id="play-again-btn" class="btn btn-primary">PLAY AGAIN</button>
         </div>
         
     </div>
